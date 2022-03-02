@@ -15,4 +15,5 @@ export const FootText = styled.h4`
 `
 export const SmallText = styled.h6`
     color: var(--white-color);
+    font-size: var(--font-twelve);
 `

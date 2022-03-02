@@ -6,6 +6,10 @@ export const SearchSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    
+    @media screen and (min-width: 700px){
+        padding: 1rem 1.5rem;   
+    }
 `
 export const SearchWrap = styled.form`
     display: flex;
@@ -15,8 +19,8 @@ export const SearchWrap = styled.form`
 `
 export const InputBar = styled.input`
     display: block;
-    outline: none;
-    border: 3px solid var(--red-color);
+    outline: var(--red-color);
+    border: 2px solid var(--grey-color);
     border-radius: 5px;
     height: 30px;
     font-size: 13px;
@@ -24,7 +28,7 @@ export const InputBar = styled.input`
     text-align: left;
     padding: 1rem;
     width: 400px;
-    height: 2.5rem;
+    height: 2.85rem;
     color: var(--black-color);
     box-shadow: 9px 9px 16px rgb(217 217 217 / 22%), -9px -9px 16px rgb(255 255 255 / 50%);
     margin-bottom: 1rem;

@@ -7,7 +7,7 @@ export const Header = styled.header`
     align-items: baseline;
     padding: 1rem;
     background: var(--red-color);
-    height: auto;
+    height: 5rem;
 `
 export const HeadText = styled.h1`
     color: var(--white-color);

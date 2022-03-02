@@ -8,15 +8,15 @@ export const UserWrapper = styled.section`
     , -9px -9px 16px rgb(189 189 189 / 24%);
     border-radius: 10px;
     margin: 1rem;
-    display: none;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 2rem;
-    padding: 1rem;
 
-    @media screen and (min-width: 900px) {
-        width: 320px;
-        height: 250px;
+    @media screen and (min-width: 700px) {
+        width: 350px;
+        height: 300px;
+        margin: 1rem 2rem;
     }
 `
 
@@ -25,7 +25,8 @@ export const ProfileImg = styled.div`
     height: 80px;
     border-radius: 50%;
     margin: 1rem;
-    background: url(../../assets/rachel.png);
+    padding: 1rem;
+    background: url(/assets/blub.jpg);
     box-shadow: 9px 9px 16px rgb(189 189 189 / 20%),
      -9px -9px 16px rgb(189 189 189 / 24%);
 
@@ -38,7 +39,23 @@ export const ProfileImg = styled.div`
 
 export const UserDetails = styled.div   `
     display: block;
+    padding: 1rem;
+`
+export const DetHeader = styled.div   `
+    display: flex;
+    padding: 1rem;
 `
 export const Det = styled.div   `
-    display: block;
+    display: flex;
+    margin-bottom: .3rem;
+`
+export const DetText = styled.p   `
+    margin-left: .75rem;
+    color: #949393;
+`
+export const Linebreak = styled.hr`
+    width: 100%;
+    background: var(--grey-color);
+    height: 0.5px;
+    border: none;
 `

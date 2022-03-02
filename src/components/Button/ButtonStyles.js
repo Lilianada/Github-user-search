@@ -7,9 +7,9 @@ export const Button = styled.button`
     color: var(--white-color);
     font-size: 14px;
     font-weight: 500;
-    margin-right: 5%;
-    margin-left: 5%;
-    padding: .8rem;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding: 1rem;
     cursor: pointer;
     width: ${props => props.theme.main};
 
