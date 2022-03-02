@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const HeroWrap = styled.section`
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+    height: fit-content;
 `
 
 export const HeroText = styled.h2`

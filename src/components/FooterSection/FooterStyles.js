@@ -5,9 +5,10 @@ export const Footer = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem 2rem;
     text-align: center;
     background: var(--black-color);
+    height: auto;
 `
 export const FootText = styled.h4`
     color: var(--white-color);
