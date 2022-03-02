@@ -1,179 +1,32 @@
-import { Linebreak } from "../UserModal/UserProfileStyles";
-import {FaUser} from "react-icons/fa";
-import { GridWrapper, User, ProfileWrap, Name, UserName, Bio,Location } from "./GridStyles";
+import UserProfile from "../UserModal/UserProfile";
+import styled, {ThemeProvider} from 'styled-components';
+import { useState } from "react";
+import { Button } from "../Button/ButtonStyles";
 
+const GridWrapper = styled.section`
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+`
+const theme = {
+    main: "300px"
+}
 
 export default function GridContainer () {
+    const [visible, setVisible] = useState(15);
+    const showMoreItems = () => {
+        setVisible((prevValue) => prevValue + 15)
+    }
 
-
-    
     return (
-        <GridWrapper>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-            <User>
-                <Linebreak/>
-                <ProfileWrap>
-                    <FaUser fill="#949393" />
-                    <Name>Lilian Ada</Name>
-                    <UserName>Lilianada</UserName>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Bio>I enjoy programming way too much, to the moon 🚀 🚀 🚀 🚀 🚀 🚀</Bio>
-                </ProfileWrap>
-                <ProfileWrap>
-                    <Location>Bangaladash</Location>
-                </ProfileWrap>
-                
-            </User>
-        </GridWrapper>
+        <>
+            <GridWrapper>
+                {/* {UserProfile.slice(0, visible).map(() => )} */}
+            </GridWrapper>
+            <ThemeProvider theme={theme}>
+                <Button onClick={showMoreItems}>Load more</Button>
+            </ThemeProvider>
+        </>
     );
 }

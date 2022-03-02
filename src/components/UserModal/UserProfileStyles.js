@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const UserWrapper = styled.section`
-    width: 270px;
-    height: 290px;
+export const UserWrapper = styled.div`
+    width: 290px;
+    height: fit-content;
     background: var(--white-color);
     box-shadow: 9px 9px 16px rgb(189 189 189 / 20%)
     , -9px -9px 16px rgb(189 189 189 / 24%);
@@ -15,26 +15,14 @@ export const UserWrapper = styled.section`
 
     @media screen and (min-width: 700px) {
         width: 350px;
-        height: 300px;
-        margin: 1rem 2rem;
+        height: fit-content;
+        margin: 2rem;
     }
 `
 
-export const ProfileImg = styled.div`
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 1rem;
-    padding: 1rem;
-    background: url(/assets/blub.jpg);
-    box-shadow: 9px 9px 16px rgb(189 189 189 / 20%),
-     -9px -9px 16px rgb(189 189 189 / 24%);
-
-     @media screen and (min-width: 900px) {
-        width: 100px;
-        height: 100px;
-        margin: 1.5rem 1rem 1rem;
-    }
+export const ProfileImg = styled.img`
+    width: 100%;
+    height: fit-content;
 `
 
 export const UserDetails = styled.div   `

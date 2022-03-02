@@ -5,6 +5,11 @@ import { useState } from "react"
 import InvalidInput from "../NoUser/InvalidRequest"
 import UserProfile from "../UserModal/UserProfile";
 import NoUserFound from "../NoUser/UserNotFound";
+import {ThemeProvider} from 'styled-components';
+
+const theme = {
+    main: "300px"
+}
 
 export default function SearchBar () {
     let url = "https://api.github.com/search/users"
@@ -13,7 +18,16 @@ export default function SearchBar () {
     const [input, setInput] = useState("");
     const [error, setError] = useState();
     const [data, setData] = useState([])
-    
+    // const [display, setDisplay] = useState(false)
+    const [visible, setVisible] = useState(10);
+
+    const showMoreItems = () => {
+        setVisible((prevValue) => prevValue + 10)
+    }    
+
+    // const display = () => {
+    //     setDisplay((load) => load  data.length() !== 0 )
+    // }
 
     const handleInput = (e) => {
         setInput(e.target.value)
@@ -36,6 +50,7 @@ export default function SearchBar () {
                 setData(data)
                 setError("No Error.")
             }
+            setData(data.slice(0, 10))
         });
         
     }
@@ -62,22 +77,28 @@ export default function SearchBar () {
                     </Button>
                 </SearchWrap>
             </SearchSection>
-            {error  == "Invalid input." && <InvalidInput/>}
-            {error == "User Not Found!" && <NoUserFound/>}
-            {error  == "No Error." && (
-                data.items.map((item, index) => {
-                    return <UserProfile
-                                key= {item.id}
-                                id= {item.id}
-                                avatar_url= {item.avatar_url}
-                                login= {item.login}
-                                following_url= {item.following_url}
-                                followers_url= {item.followers_url}
-                                score= {item.score}
-                                html_url= {item.html_url}
-                            />
-                }) 
-            )}
+            
+                {error  == "Invalid input." && <InvalidInput/>}
+                {error == "User Not Found!" && <NoUserFound/>}
+                {error  == "No Error." && (
+                    data.items.slice(0, visible).map((item, index) => {
+                        return <UserProfile
+                                    key= {item.id}
+                                    id= {item.id}
+                                    avatar_url= {item.avatar_url}
+                                    login= {item.login}
+                                    following_url= {item.following_url}
+                                    followers_url= {item.followers_url}
+                                    score= {item.score}
+                                    repos_url= {item.repos_url}
+                                />
+                    }) 
+                )}
+
+                <ThemeProvider theme={theme}>
+                    <Button onClick={showMoreItems} style={data.length > 0 ? 
+                   { display:"flex"} : {display:"none"}}>Load more</Button>
+                </ThemeProvider>
         </>  
     );
 }
