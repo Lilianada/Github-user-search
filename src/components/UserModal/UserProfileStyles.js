@@ -10,6 +10,7 @@ export const UserWrapper = styled.div`
     margin: 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin-bottom: 2rem;
 
@@ -36,6 +37,7 @@ export const DetHeader = styled.div   `
 export const Det = styled.div   `
     display: flex;
     margin-bottom: .3rem;
+    align-items: center;
 `
 export const DetText = styled.p   `
     margin-left: .75rem;

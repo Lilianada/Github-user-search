@@ -41,7 +41,7 @@ export default function ScrollToTop() {
     <Scroll>
       {isVisible && (
         <div onClick={scrollToTop}>
-          <BsFillArrowUpSquareFill size={20} fill="#d9d9d99c"/>
+          <BsFillArrowUpSquareFill size={24} fill="#d9d9d99c"/>
         </div>
       )}
     </Scroll>

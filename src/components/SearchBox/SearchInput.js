@@ -8,7 +8,7 @@ import NoUserFound from "../NoUser/UserNotFound";
 import {ThemeProvider} from 'styled-components';
 
 const theme = {
-    main: "300px"
+    main: "280px"
 }
 
 export default function SearchBar () {
@@ -81,7 +81,7 @@ export default function SearchBar () {
                 {error  == "Invalid input." && <InvalidInput/>}
                 {error == "User Not Found!" && <NoUserFound/>}
                 {error  == "No Error." && (
-                    data.items.slice(0, visible).map((item, index) => {
+                    data.items?.slice(0, visible).map((item, index) => {
                         return <UserProfile
                                     key= {item.id}
                                     id= {item.id}
@@ -96,8 +96,8 @@ export default function SearchBar () {
                 )}
 
                 <ThemeProvider theme={theme}>
-                    <Button onClick={showMoreItems} style={data.length > 0 ? 
-                   { display:"flex"} : {display:"none"}}>Load more</Button>
+                    <Button onClick={showMoreItems} style={{
+                   display: data.items?.length > 0 ? "flex" : "none", margin: "2rem auto"}}>Load more</Button>
                 </ThemeProvider>
         </>  
     );

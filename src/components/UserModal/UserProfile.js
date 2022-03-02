@@ -62,7 +62,9 @@ export default function UserProfile ({
                         <DetHeader><h4>{login}</h4> </DetHeader>
                         <Linebreak/>
                     {onHover && (
-                            <UserDetails>
+                            <UserDetails
+                                onMouseOver={() => setOnHover(true)} 
+                            >
                                 <Det><FaUser fill="#949393" /><DetText>{following.length} Following</DetText></Det>
                                 <Det><FaUser fill="#949393" /><DetText>{followers.length} Followers</DetText></Det>
                                 <Det><GoRepoPush fill="#949393" /><DetText>{score}</DetText></Det>
