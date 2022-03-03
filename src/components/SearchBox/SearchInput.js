@@ -1,4 +1,4 @@
-import {SearchSection, SearchWrap, InputBar, SearchHead} from "./SearchStyles"
+import {SearchSection, SearchWrap, InputBar, SearchHead, GridWrap} from "./SearchStyles"
 // import {IoSearchSharp} from 'react-icons/io5'
 import { Button } from "../Button/ButtonStyles"
 import { useState } from "react"
@@ -8,7 +8,7 @@ import NoUserFound from "../NoUser/UserNotFound";
 import {ThemeProvider} from 'styled-components';
 
 const theme = {
-    main: "280px"
+    main: "70%"
 }
 
 export default function SearchBar () {
@@ -17,17 +17,12 @@ export default function SearchBar () {
     const [page, setPage] = useState(1);
     const [input, setInput] = useState("");
     const [error, setError] = useState();
-    const [data, setData] = useState([])
-    // const [display, setDisplay] = useState(false)
+    const [data, setData] = useState([]);
     const [visible, setVisible] = useState(10);
 
     const showMoreItems = () => {
         setVisible((prevValue) => prevValue + 10)
     }    
-
-    // const display = () => {
-    //     setDisplay((load) => load  data.length() !== 0 )
-    // }
 
     const handleInput = (e) => {
         setInput(e.target.value)
@@ -37,6 +32,8 @@ export default function SearchBar () {
         
         if (input === ""){
             setError("Invalid input.")
+            setTimeout(() => {
+                setError('')}, 1500)
             return 
         }
         fetch (url + `?q=${input}&page=${page}`)
@@ -44,11 +41,16 @@ export default function SearchBar () {
         .then (data => { console.log(data)
             if (data.invalid){
                 setError(data.message)
+                setTimeout(() => {
+                    setError('')}, 1500)
             }else if( data.total_count === 0){ 
                 setError("User Not Found!")
+                setTimeout(() => {
+                    setError('')}, 1500)
             }else{
                 setData(data)
                 setError("No Error.")
+                setInput('')
             }
             setData(data.slice(0, 10))
         });
@@ -75,29 +77,41 @@ export default function SearchBar () {
                         >
                         Submit
                     </Button>
+                    <Button 
+                        type="button"
+                        value={'submit'}
+                        onClick={() => {
+                            setData([])
+                        }}
+                        >
+                        Clear
+                    </Button>
                 </SearchWrap>
             </SearchSection>
             
                 {error  == "Invalid input." && <InvalidInput/>}
                 {error == "User Not Found!" && <NoUserFound/>}
                 {error  == "No Error." && (
-                    data.items?.slice(0, visible).map((item, index) => {
-                        return <UserProfile
-                                    key= {item.id}
-                                    id= {item.id}
-                                    avatar_url= {item.avatar_url}
-                                    login= {item.login}
-                                    following_url= {item.following_url}
-                                    followers_url= {item.followers_url}
-                                    score= {item.score}
-                                    repos_url= {item.repos_url}
-                                />
-                    }) 
+                    <GridWrap>
+                        {data.items?.slice(0, visible).map((item, index) => {
+                            return <UserProfile
+                                key= {item.id}
+                                id= {item.id}
+                                avatar_url= {item.avatar_url}
+                                login= {item.login}
+                                following_url= {item.following_url}
+                                followers_url= {item.followers_url}
+                                score= {item.score}
+                                repos_url= {item.repos_url}
+                            />
+                        }) }
+                    </GridWrap>
                 )}
 
                 <ThemeProvider theme={theme}>
                     <Button onClick={showMoreItems} style={{
-                   display: data.items?.length > 0 ? "flex" : "none", margin: "2rem auto"}}>Load more</Button>
+                        display: data.items?.length > 10 ? "table" : "none", margin: "2rem auto"
+                        }}>Load more</Button>
                 </ThemeProvider>
         </>  
     );

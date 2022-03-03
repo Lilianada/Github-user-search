@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UserWrapper = styled.div`
-    width: 290px;
+    width: 220px;
     height: fit-content;
     background: var(--white-color);
     box-shadow: 9px 9px 16px rgb(189 189 189 / 20%)
@@ -13,22 +13,26 @@ export const UserWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     margin-bottom: 2rem;
+    transition: all .3s;
 
     @media screen and (min-width: 700px) {
-        width: 350px;
+        width: 250px;
         height: fit-content;
         margin: 2rem;
     }
 `
 
 export const ProfileImg = styled.img`
-    width: 100%;
-    height: fit-content;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 1.5rem 1rem 1rem;
 `
 
 export const UserDetails = styled.div   `
     display: block;
     padding: 1rem;
+    transition: all .3s;
 `
 export const DetHeader = styled.div   `
     display: flex;

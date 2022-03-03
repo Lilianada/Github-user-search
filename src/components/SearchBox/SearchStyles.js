@@ -40,5 +40,11 @@ export const SearchHead = styled.h3`
     margin-bottom: 1rem;
 `
 
-
+export const GridWrap = styled.section`
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+`
 

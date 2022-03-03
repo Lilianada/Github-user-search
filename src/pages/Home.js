@@ -3,13 +3,14 @@ import styled from "styled-components";
 import FooterWrap from "../components/FooterSection/Footer";
 import HeroSection from "../components/HeroSection/Hero";
 import SearchBar from "../components/SearchBox/SearchInput";
-import GridContainer from "../components/GridContainer/GridWrapper";
-import ScrollToTop from "../components/ScrollTop";
+import ScrollToTop from "../components/ScrollToTop/ScrollTop";
 
 const BodyWrapper = styled.div`
     display: grid;
     grid-template-columns: 100%;
+    grid-template-rows: auto;
     height: 100vh;
+    /* gap: 1rem; */
 `
 export default function HomePage () {
     return (
@@ -18,8 +19,8 @@ export default function HomePage () {
                 <HeaderWrap />
                 <HeroSection />
                 <SearchBar />
-                <ScrollToTop />
                 <FooterWrap />
+                <ScrollToTop />
             </BodyWrapper>
         </>
     );
