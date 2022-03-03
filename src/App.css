@@ -6,7 +6,7 @@
 :root {
 
     /* Colors */
-    --white-color: #FFFFFF;
+    --white-color: #fffffd;
     --black-color: #141414;
     --grey-color: #D9D9D9;
     --red-color: #AB2121;
@@ -145,3 +145,50 @@ img {
     background-position: center;
     background-size: cover;
 }
+
+/* STyles for card hover */
+
+.card {
+    width: 250px;
+    height: 196px;
+    background: var(--white-color);
+    box-shadow: 9px 9px 16px rgb(189 189 189 / 20%)
+    , -9px -9px 16px rgb(189 189 189 / 24%);
+    border-radius: 10px;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: ease all .5s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+  
+.card * {
+    transition: 0.3s ease all;
+}
+.cardTop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 1.5rem 1rem 1rem;
+    display: grid;
+    place-items: center;
+  }
+  
+  .card .focus-content {
+    display: block;
+    text-align: left;
+    padding: 1rem;
+  }
+  
+  .card:hover img, .card:focus-within img{
+    margin-top: -120px;
+  }
+  

@@ -1,11 +1,11 @@
 import {SearchSection, SearchWrap, InputBar, SearchHead, GridWrap} from "./SearchStyles"
-// import {IoSearchSharp} from 'react-icons/io5'
 import { Button } from "../Button/ButtonStyles"
 import { useState } from "react"
 import InvalidInput from "../NoUser/InvalidRequest"
 import UserProfile from "../UserModal/UserProfile";
 import NoUserFound from "../NoUser/UserNotFound";
 import {ThemeProvider} from 'styled-components';
+import LoadingAnimation from "../LoadAnim/LoadingAnim";
 
 const theme = {
     main: "70%"
@@ -27,6 +27,7 @@ export default function SearchBar () {
     const handleInput = (e) => {
         setInput(e.target.value)
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         
@@ -36,6 +37,7 @@ export default function SearchBar () {
                 setError('')}, 1500)
             return 
         }
+        setError('Loading')
         fetch (url + `?q=${input}&page=${page}`)
         .then (res => res.json())
         .then (data => { console.log(data)
@@ -48,11 +50,11 @@ export default function SearchBar () {
                 setTimeout(() => {
                     setError('')}, 1500)
             }else{
-                setData(data)
+                setData(data.items)
                 setError("No Error.")
                 setInput('')
             }
-            setData(data.slice(0, 10))
+            
         });
         
     }
@@ -69,13 +71,13 @@ export default function SearchBar () {
                         value={input}
                         onChange={handleInput}
                     />
-                    {/* <IoSearchSharp fill="#949393" style={{position: "absolute", top:"20.5rem", left:"24rem"}}/> */}
+                    
                     <Button 
                         type="submit"
                         value={'submit'}
                         onClick={handleSubmit}
                         >
-                        Submit
+                        Submit 
                     </Button>
                     <Button 
                         type="button"
@@ -86,14 +88,16 @@ export default function SearchBar () {
                         >
                         Clear
                     </Button>
+
+                    {error == 'Loading' && <LoadingAnimation />}
                 </SearchWrap>
             </SearchSection>
             
                 {error  == "Invalid input." && <InvalidInput/>}
                 {error == "User Not Found!" && <NoUserFound/>}
-                {error  == "No Error." && (
+                {error  == "No Error."  && (
                     <GridWrap>
-                        {data.items?.slice(0, visible).map((item, index) => {
+                        {data?.slice(0, visible).map((item, index) => {
                             return <UserProfile
                                 key= {item.id}
                                 id= {item.id}
@@ -103,6 +107,7 @@ export default function SearchBar () {
                                 followers_url= {item.followers_url}
                                 score= {item.score}
                                 repos_url= {item.repos_url}
+                                html_url= {item.html_url}
                             />
                         }) }
                     </GridWrap>
@@ -110,7 +115,7 @@ export default function SearchBar () {
 
                 <ThemeProvider theme={theme}>
                     <Button onClick={showMoreItems} style={{
-                        display: data.items?.length > 10 ? "table" : "none", margin: "2rem auto"
+                        display: data?.length > 10 ? "table" : "none", margin: "2rem auto"
                         }}>Load more</Button>
                 </ThemeProvider>
         </>  

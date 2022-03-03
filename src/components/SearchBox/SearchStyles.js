@@ -44,7 +44,11 @@ export const GridWrap = styled.section`
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 600px) {
+        justify-content: flex-start;
+    }
 `
 

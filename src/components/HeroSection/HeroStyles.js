@@ -8,7 +8,7 @@ export const HeroWrap = styled.section`
 `
 
 export const HeroText = styled.h2`
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 `
 
 export const HeroSubText = styled.p`

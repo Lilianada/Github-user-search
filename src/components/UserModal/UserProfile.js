@@ -1,14 +1,14 @@
-import { UserWrapper, 
-        ProfileImg, 
-        UserDetails, 
+import {  
         Det, 
         Linebreak,
         DetText, 
+        DetLink, 
         DetHeader 
 } from "./UserProfileStyles";
 import {FaUser} from "react-icons/fa";
 import {VscRepo} from "react-icons/vsc";
 import {GoRepoPush} from "react-icons/go";
+import {MdLink} from "react-icons/md";
 import { useEffect, useState } from "react";
 
 export default function UserProfile ({
@@ -17,7 +17,8 @@ export default function UserProfile ({
     following_url,
     followers_url,
     score,
-    repos_url
+    repos_url,
+    html_url
 }) {
     const [following, setFollowing] = useState([]);
     const [followers, setFollowers] = useState([]);
@@ -54,24 +55,21 @@ export default function UserProfile ({
 
     return (
         <>
-            <UserWrapper 
-                onMouseOver={() => setOnHover(true)} 
-                onMouseOut={() => setOnHover(false)}
-                >
-                <ProfileImg src={avatar_url}/>
-                        <DetHeader><h4>{login}</h4> </DetHeader>
-                        <Linebreak/>
-                    {onHover && (
-                            <UserDetails
-                                onMouseOver={() => setOnHover(true)} 
-                            >
-                                <Det><FaUser fill="#949393" /><DetText>{following.length} Following</DetText></Det>
-                                <Det><FaUser fill="#949393" /><DetText>{followers.length} Followers</DetText></Det>
-                                <Det><GoRepoPush fill="#949393" /><DetText>{score}</DetText></Det>
-                                <Det><VscRepo fill="#949393" /><DetText>{repo.length}</DetText></Det>
-                            </UserDetails>
-                    )}
-            </UserWrapper>
+            <div className="card">
+                <div className="cardTop">
+                    <img src={avatar_url}/>
+                    <DetHeader><h4>{login}</h4> </DetHeader>
+                    <Linebreak/>
+                </div>
+
+                <div className="focus-content">
+                    <Det><FaUser fill="#949393" /><DetText>{following.length} Following</DetText></Det>
+                    <Det><FaUser fill="#949393" /><DetText>{followers.length} Followers</DetText></Det>
+                    <Det><GoRepoPush fill="#949393" /><DetText>{score}</DetText></Det>
+                    <Det><VscRepo fill="#949393" /><DetText>{repo.length}</DetText></Det>
+                    <Det><MdLink fill="#949393" /><DetLink><a href={html_url}>Github Link</a></DetLink></Det>
+                </div>
+            </div>
         </>
     );
 }

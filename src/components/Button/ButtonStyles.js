@@ -9,7 +9,7 @@ export const Button = styled.button`
     font-weight: 500;
     margin-right: 2%;
     margin-left: 2%;
-    padding: 1rem;
+    padding: .95rem;
     cursor: pointer;
     width: ${props => props.theme.main};
 
