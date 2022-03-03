@@ -38,6 +38,7 @@ export default function SearchBar () {
             return 
         }
         setError('Loading')
+        setVisible(10)
         fetch (url + `?q=${input}&page=${page}`)
         .then (res => res.json())
         .then (data => { console.log(data)
